@@ -1,88 +1,117 @@
 import { useState, useRef, useEffect } from "react";
 import AnimatedSection from "./AnimatedSection";
+import halettImg from "../images/projects/halett.jpg";
+import halettPng from "../images/drawings/halett.png";
+import hudsonImg from "../images/projects/hudson.jpg";
+import hudsonPng from "../images/drawings/hudson.png";
+import ashvilleImg from "../images/projects/ashville.jpg";
+import brownsvilleImg from "../images/projects/brownville.jpg";
+import georgiaBlueImg from "../images/projects/george.jpg";
+import nationalGuardImg from "../images/projects/national.jpg";
+import newFrayserImg from "../images/projects/library.jpg";
+import norwinStadiumImg from "../images/projects/stadium.jpg";
+import avenue6Img from "../images/projects/avenue.jpg";
+import ashvillePng from "../images/drawings/ashville.png";
+import brownsvillePng from "../images/drawings/brownville.png";
+import georgiaBluePng from "../images/drawings/george.png";
+import nationalGuardPng from "../images/drawings/national.png";
+import newFrayserPng from "../images/drawings/library.png";
+import norwinStadiumPng from "../images/drawings/stadium.png";
+import avenue6Png from "../images/drawings/avenue.png";
+import wylandImg from "../images/projects/wylandville.jpg";
+import wylandPng from "../images/drawings/wylandville.png";
 
 // Extended project data with building type, tonnage, and 3D model PNG image
 const projects = [
   {
-    img: "src/images/projects/halett.jpg",
+    img: halettImg,
     name: "Halletts Point Residential Complex",
     location: "New York, USA",
     services: "Steel Detailing & Shop Drawings",
     buildingType: "Mixed-Use Residential",
     tonnage: "5,213 tonnes",
-    modelPng: "src/images/drawings/halett.png"
+    modelPng: halettPng
   },
   {
-    img: "src/images/projects/55 hudson || TNM.jpg",
+    img: hudsonImg,
     name: "55 Hudson Yards",
     location: "New York, USA",
     services: "High-Rise Steel Framing",
     buildingType: "Luxury Office Tower",
     tonnage: "560 tonnes",
-    modelPng: "src/images/drawings/hudson.png"
+    modelPng: hudsonPng
   },
   {
-    img: "src/images/projects/ASHEVILLE ATCT FACILITY || ACADIAN STEEL.jpg",
+    img: ashvilleImg,
     name: "Asheville Air Traffic Control Tower",
     location: "Asheville, USA",
     services: "Structural Steel Design",
     buildingType: "Transportation / ATC Facility",
     tonnage: "4,836 tonnes",
-    modelPng: "src/images/drawings/ashville.png"
+    modelPng: ashvillePng
   },
   {
-    img: "src/images/projects/brownsville-rd-elementary-school || TS.jpg",
+    img: brownsvilleImg,
     name: "Brownsville Road Elementary School",
     location: "Pittsburgh, USA",
     services: "Educational Steel Structure",
     buildingType: "Educational / K-12 School",
     tonnage: "2,244 tonnes",
-    modelPng: "src/images/drawings/brownville.png"
+    modelPng: brownsvillePng
   },
   {
-    img: "src/images/projects/GEORGIA BLUE SOUTHAVEN || TS.jpg",
+    img: georgiaBlueImg,
     name: "Georgia Blue Southaven",
     location: "Georgia, USA",
     services: "Commercial Steel Project",
     buildingType: "Restaurant & Retail",
     tonnage: "449 tonnes",
-    modelPng: "src/images/drawings/george blue southaven.png"
+    modelPng: georgiaBluePng
   },
   {
-    img: "src/images/projects/National Guard Readiness || TS.jpg",
+    img: nationalGuardImg,
     name: "National Guard Readiness Center",
     location: "Mississippi, USA",
     services: "Military Facility Steel Structure",
     buildingType: "Military / Government Facility",
     tonnage: "1,765 tonnes",
-    modelPng: "src/images/drawings/national guard readiness.png"
+    modelPng: nationalGuardPng
   },
   {
-    img: "src/images/projects/NEW FRAYSER LIBRARY || TS.jpg",
+    img: newFrayserImg,
     name: "New Frayser Library",
     location: "Memphis, USA",
     services: "Architectural Steel Design",
     buildingType: "Public Library / Civic",
     tonnage: "3,654 tonnes",
-    modelPng: "src/images/drawings/new frayer library.png"
+    modelPng: newFrayserPng
   },
   {
-    img: "src/images/projects/Norwin Stadium || TRINITY.jpg",
+    img: norwinStadiumImg,
     name: "Norwin Stadium",
     location: "Pennsylvania, USA",
     services: "Sports Stadium Roof Structure",
     buildingType: "Sports & Recreation Stadium",
     tonnage: "1,490 tonnes",
-    modelPng: "src/images/drawings/norwin stadium.png"
+    modelPng: norwinStadiumPng
   },
   {
-    img: "src/images/projects/6th avenue rfp || TNM.jpg",
+    img: avenue6Img,
     name: "6th Avenue RFP Tower",
     location: "New York, USA",
     services: "Structural Design & Detailing",
     buildingType: "Commercial High-Rise Office",
     tonnage: "1,300 tonnes",
-    modelPng: "src/images/drawings/6th avenue.png"
+    modelPng: avenue6Png
+  },
+  {
+    img: wylandImg,
+    name: "Wylandville Elementary School",
+    location: "Pennsylvania, USA",
+    services: "Educational Steel Structure",
+    buildingType: "EducationalSchool",
+    tonnage: "1,453 tonnes",
+    modelPng: wylandPng
   },
 ];
 
