@@ -4,16 +4,7 @@ import AnimatedSection from "./AnimatedSection";
 // Extended project data with building type, tonnage, and 3D model PNG image
 const projects = [
   {
-    img: "/src/images/PROJECTS/6th avenue rfp || TNM.jpg",
-    name: "6th Avenue RFP Tower",
-    location: "New York, USA",
-    services: "Structural Design & Detailing",
-    buildingType: "Commercial High-Rise Office",
-    tonnage: "1,300 tonnes",
-    modelPng: "src/images/3 D Drawings/6th avenue.png"
-  },
-  {
-    img: "/src/images/PROJECTS/20-30-halletts-point || TNM.jpg",
+    img: "src/images/PROJECTS/20-30-halletts-point || TNM.jpg",
     name: "Halletts Point Residential Complex",
     location: "New York, USA",
     services: "Steel Detailing & Shop Drawings",
@@ -22,7 +13,7 @@ const projects = [
     modelPng: "src/images/3 D Drawings/halett point.png"
   },
   {
-    img: "/src/images/PROJECTS/55 hudson || TNM.jpg",
+    img: "src/images/PROJECTS/55 hudson || TNM.jpg",
     name: "55 Hudson Yards",
     location: "New York, USA",
     services: "High-Rise Steel Framing",
@@ -31,7 +22,7 @@ const projects = [
     modelPng: "src/images/3 D Drawings/hudson.png"
   },
   {
-    img: "/src/images/PROJECTS/ASHEVILLE ATCT FACILITY || ACADIAN STEEL.jpg",
+    img: "src/images/PROJECTS/ASHEVILLE ATCT FACILITY || ACADIAN STEEL.jpg",
     name: "Asheville Air Traffic Control Tower",
     location: "Asheville, USA",
     services: "Structural Steel Design",
@@ -40,7 +31,7 @@ const projects = [
     modelPng: "src/images/3 D Drawings/ashville.png"
   },
   {
-    img: "/src/images/PROJECTS/brownsville-rd-elementary-school || TS.jpg",
+    img: "src/images/PROJECTS/brownsville-rd-elementary-school || TS.jpg",
     name: "Brownsville Road Elementary School",
     location: "Pittsburgh, USA",
     services: "Educational Steel Structure",
@@ -49,7 +40,7 @@ const projects = [
     modelPng: "src/images/3 D Drawings/brownville.png"
   },
   {
-    img: "/src/images/PROJECTS/GEORGIA BLUE SOUTHAVEN || TS.jpg",
+    img: "src/images/PROJECTS/GEORGIA BLUE SOUTHAVEN || TS.jpg",
     name: "Georgia Blue Southaven",
     location: "Georgia, USA",
     services: "Commercial Steel Project",
@@ -58,7 +49,7 @@ const projects = [
     modelPng: "src/images/3 D Drawings/george blue southaven.png"
   },
   {
-    img: "/src/images/PROJECTS/National Guard Readiness || TS.jpg",
+    img: "src/images/PROJECTS/National Guard Readiness || TS.jpg",
     name: "National Guard Readiness Center",
     location: "Mississippi, USA",
     services: "Military Facility Steel Structure",
@@ -67,7 +58,7 @@ const projects = [
     modelPng: "src/images/3 D Drawings/national guard readiness.png"
   },
   {
-    img: "/src/images/PROJECTS/NEW FRAYSER LIBRARY || TS.jpg",
+    img: "src/images/PROJECTS/NEW FRAYSER LIBRARY || TS.jpg",
     name: "New Frayser Library",
     location: "Memphis, USA",
     services: "Architectural Steel Design",
@@ -76,14 +67,23 @@ const projects = [
     modelPng: "src/images/3 D Drawings/new frayer library.png"
   },
   {
-    img: "/src/images/PROJECTS/Norwin Stadium || TRINITY.jpg",
+    img: "src/images/PROJECTS/Norwin Stadium || TRINITY.jpg",
     name: "Norwin Stadium",
     location: "Pennsylvania, USA",
     services: "Sports Stadium Roof Structure",
     buildingType: "Sports & Recreation Stadium",
     tonnage: "1,490 tonnes",
     modelPng: "src/images/3 D Drawings/norwin stadium.png"
-  }
+  },
+  {
+    img: "src/images/PROJECTS/6th avenue rfp || TNM.jpg",
+    name: "6th Avenue RFP Tower",
+    location: "New York, USA",
+    services: "Structural Design & Detailing",
+    buildingType: "Commercial High-Rise Office",
+    tonnage: "1,300 tonnes",
+    modelPng: "src/images/3 D Drawings/6th avenue.png"
+  },
 ];
 
 const ProjectsSection = () => {
