@@ -27,16 +27,31 @@ const Navbar = () => {
       }`}
     >
       <div className="section-container flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-accent rounded-sm flex items-center justify-center">
-            <span className="font-display font-black text-accent-foreground text-sm">IKT</span>
+        {/* Logo area with tagline below */}
+        <a href="#home" className="flex flex-col items-start gap-0">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-accent rounded-sm flex items-center justify-center">
+              <span className="font-display font-black text-accent-foreground text-sm">IKT</span>
+            </div>
+            <span
+              className={`font-display font-bold text-lg ${
+                scrolled ? "text-primary" : "text-primary-foreground"
+              }`}
+            >
+              IK Tangience LLP
+            </span>
           </div>
-          <span className={`font-display font-bold text-lg ${scrolled ? "text-primary" : "text-primary-foreground"}`}>
-            IK Tangience LLP
+          {/* TAGLINE - WE SPEAK FLUENT STEEL */}
+          <span
+            className={`font-mono text-[10px] tracking-[2px] uppercase mt-0.5 ${
+              scrolled ? "text-orange-600" : "text-orange-300"
+            }`}
+          >
+            WE SPEAK FLUENT STEEL
           </span>
         </a>
 
-        {/* Desktop */}
+        {/* Desktop Nav Links & Button */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((l) => (
             <a
@@ -49,19 +64,16 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-        {<button
-  className="btn-primary text-base flex items-center"
-  onClick={() => window.open('mailto:info@iktangience.com')}
->
-  Get a Quote
-  <ArrowRight className="ml-2 w-5 h-5" />
-</button> }
- {/* {<a href="#contact" className="btn-primary text-sm !py-2.5 !px-6">
+          <button
+            className="btn-primary text-base flex items-center"
+            onClick={() => window.open('mailto:info@iktangience.com')}
+          >
             Get a Quote
-          </a> } */}
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </button>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle button */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className={`md:hidden ${scrolled ? "text-primary" : "text-primary-foreground"}`}

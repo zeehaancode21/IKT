@@ -19,7 +19,7 @@ formData.append("_subject", "🚀 New Project Inquiry");
 formData.append("_replyto", formData.get("email") as string);
     formData.set("message", htmlMessage)
     try {
-      const response = await fetch("https://formspree.io/f/mgvyjbgd", {
+      const response = await fetch("https://formspree.io/f/xojbqbpz", {
         method: "POST",
         body: formData,
         headers: { Accept: "application/json" },

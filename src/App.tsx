@@ -18,7 +18,7 @@ const App = () => (
         <Toaster />
         <Sonner />
 
-        <BrowserRouter>
+        <BrowserRouter basename="/IKT">
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="*" element={<NotFound />} />

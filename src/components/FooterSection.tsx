@@ -38,7 +38,7 @@ const FooterSection = () => (
           </ul>
         </div>
 
-        <div>
+        {/* <div>
           <h4 className="font-display font-bold text-primary-foreground text-sm mb-4">Connect</h4>
           <div className="flex gap-3">
             {[Linkedin, Twitter, Facebook, Instagram].map((Icon, i) => (
@@ -51,7 +51,7 @@ const FooterSection = () => (
               </a>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="border-t border-primary-foreground/10 pt-8 text-center">

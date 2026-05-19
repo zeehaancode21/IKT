@@ -11,6 +11,9 @@ export default {
       screens: { "2xl": "1400px" },
     },
     extend: {
+      transitionDuration: {
+        5000: '5000ms',
+      },
       fontFamily: {
         display: ["Inter", "system-ui", "sans-serif"],
         body: ["Public Sans", "system-ui", "sans-serif"],
