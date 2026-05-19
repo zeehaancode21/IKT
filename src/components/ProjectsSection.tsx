@@ -4,85 +4,85 @@ import AnimatedSection from "./AnimatedSection";
 // Extended project data with building type, tonnage, and 3D model PNG image
 const projects = [
   {
-    img: "src/images/PROJECTS/20-30-halletts-point || TNM.jpg",
+    img: "src/images/projects/halett.jpg",
     name: "Halletts Point Residential Complex",
     location: "New York, USA",
     services: "Steel Detailing & Shop Drawings",
     buildingType: "Mixed-Use Residential",
     tonnage: "5,213 tonnes",
-    modelPng: "src/images/3 D Drawings/halett point.png"
+    modelPng: "src/images/drawings/halett.png"
   },
   {
-    img: "src/images/PROJECTS/55 hudson || TNM.jpg",
+    img: "src/images/projects/55 hudson || TNM.jpg",
     name: "55 Hudson Yards",
     location: "New York, USA",
     services: "High-Rise Steel Framing",
     buildingType: "Luxury Office Tower",
     tonnage: "560 tonnes",
-    modelPng: "src/images/3 D Drawings/hudson.png"
+    modelPng: "src/images/drawings/hudson.png"
   },
   {
-    img: "src/images/PROJECTS/ASHEVILLE ATCT FACILITY || ACADIAN STEEL.jpg",
+    img: "src/images/projects/ASHEVILLE ATCT FACILITY || ACADIAN STEEL.jpg",
     name: "Asheville Air Traffic Control Tower",
     location: "Asheville, USA",
     services: "Structural Steel Design",
     buildingType: "Transportation / ATC Facility",
     tonnage: "4,836 tonnes",
-    modelPng: "src/images/3 D Drawings/ashville.png"
+    modelPng: "src/images/drawings/ashville.png"
   },
   {
-    img: "src/images/PROJECTS/brownsville-rd-elementary-school || TS.jpg",
+    img: "src/images/projects/brownsville-rd-elementary-school || TS.jpg",
     name: "Brownsville Road Elementary School",
     location: "Pittsburgh, USA",
     services: "Educational Steel Structure",
     buildingType: "Educational / K-12 School",
     tonnage: "2,244 tonnes",
-    modelPng: "src/images/3 D Drawings/brownville.png"
+    modelPng: "src/images/drawings/brownville.png"
   },
   {
-    img: "src/images/PROJECTS/GEORGIA BLUE SOUTHAVEN || TS.jpg",
+    img: "src/images/projects/GEORGIA BLUE SOUTHAVEN || TS.jpg",
     name: "Georgia Blue Southaven",
     location: "Georgia, USA",
     services: "Commercial Steel Project",
     buildingType: "Restaurant & Retail",
     tonnage: "449 tonnes",
-    modelPng: "src/images/3 D Drawings/george blue southaven.png"
+    modelPng: "src/images/drawings/george blue southaven.png"
   },
   {
-    img: "src/images/PROJECTS/National Guard Readiness || TS.jpg",
+    img: "src/images/projects/National Guard Readiness || TS.jpg",
     name: "National Guard Readiness Center",
     location: "Mississippi, USA",
     services: "Military Facility Steel Structure",
     buildingType: "Military / Government Facility",
     tonnage: "1,765 tonnes",
-    modelPng: "src/images/3 D Drawings/national guard readiness.png"
+    modelPng: "src/images/drawings/national guard readiness.png"
   },
   {
-    img: "src/images/PROJECTS/NEW FRAYSER LIBRARY || TS.jpg",
+    img: "src/images/projects/NEW FRAYSER LIBRARY || TS.jpg",
     name: "New Frayser Library",
     location: "Memphis, USA",
     services: "Architectural Steel Design",
     buildingType: "Public Library / Civic",
     tonnage: "3,654 tonnes",
-    modelPng: "src/images/3 D Drawings/new frayer library.png"
+    modelPng: "src/images/drawings/new frayer library.png"
   },
   {
-    img: "src/images/PROJECTS/Norwin Stadium || TRINITY.jpg",
+    img: "src/images/projects/Norwin Stadium || TRINITY.jpg",
     name: "Norwin Stadium",
     location: "Pennsylvania, USA",
     services: "Sports Stadium Roof Structure",
     buildingType: "Sports & Recreation Stadium",
     tonnage: "1,490 tonnes",
-    modelPng: "src/images/3 D Drawings/norwin stadium.png"
+    modelPng: "src/images/drawings/norwin stadium.png"
   },
   {
-    img: "src/images/PROJECTS/6th avenue rfp || TNM.jpg",
+    img: "src/images/projects/6th avenue rfp || TNM.jpg",
     name: "6th Avenue RFP Tower",
     location: "New York, USA",
     services: "Structural Design & Detailing",
     buildingType: "Commercial High-Rise Office",
     tonnage: "1,300 tonnes",
-    modelPng: "src/images/3 D Drawings/6th avenue.png"
+    modelPng: "src/images/drawings/6th avenue.png"
   },
 ];
 
