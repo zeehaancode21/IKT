@@ -38,7 +38,7 @@ const Navbar = () => {
                 scrolled ? "text-primary" : "text-primary-foreground"
               }`}
             >
-              IK Tangience LLP
+              I K Tangience
             </span>
           </div>
           {/* TAGLINE - WE SPEAK FLUENT STEEL */}

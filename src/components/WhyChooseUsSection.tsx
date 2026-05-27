@@ -7,7 +7,7 @@ const reasons = [
   { icon: Zap, title: "Fast Delivery", desc: "Streamlined workflows for rapid turnaround on projects." },
   { icon: DollarSign, title: "Cost-Efficient Solutions", desc: "Optimized designs that reduce material waste and cost." },
   { icon: Cpu, title: "Advanced 3D Modeling", desc: "BIM-ready 3D models for clash-free construction." },
-  { icon: Users, title: "Experienced Team", desc: "30+ engineers with deep domain expertise." },
+  { icon: Users, title: "Experienced Team", desc: "70+ engineers with deep domain expertise." },
 ];
 
 const WhyChooseUsSection = () => (

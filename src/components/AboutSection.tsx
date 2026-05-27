@@ -3,9 +3,9 @@ import { useInView, useCounter } from "@/hooks/useScrollAnimation";
 
 const metrics = [
   { value: 200, suffix: "+", label: "Projects Completed" },
-  { value: 7, suffix: "+", label: "Years Experience" },
+  { value: 14, suffix: "+", label: "Years Experience" },
   { value: 20, suffix: "+", label: "Clients" },
-  { value: 30, suffix: "+", label: "Engineering Professionals" },
+  { value: 70, suffix: "+", label: "Engineering Professionals" },
 ];
 
 const MetricCard = ({ value, suffix, label }: { value: number; suffix: string; label: string }) => {
@@ -29,7 +29,7 @@ const AboutSection = () => (
         <h2 className="section-title mb-6">A Specialized Structural Engineering Service Provider</h2>
         <p className="section-subtitle">
           IK TANGEINCE LLP is a forward-thinking steel structural design, drafting, and detailing firm, committed to excellence in the steel construction industry.       
-          Since 2012, we have delivered over 100 projects across diverse sectors, adhering strictly to AISC standards, using advanced 3D modeling for precise and efficient designs.
+          Since 2012, we have delivered over 200 projects across diverse sectors, adhering strictly to AISC standards, using advanced 3D modeling for precise and efficient designs.
           Our experienced team is dedicated to accuracy, reliability, and timely delivery, consistently exceeding client expectations while meeting ambitious project milestones.
         </p>
       </AnimatedSection>

@@ -11,7 +11,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
 import FloatingQuoteButton from "@/components/FloatingQuoteButton";
-import TeamSection from "@/components/TeamSection";
+// import TeamSection from "@/components/TeamSection";
 
 const Index = () => (
   <>
@@ -27,7 +27,7 @@ const Index = () => (
       <WorkflowSection />
       <TestimonialsSection />
       <ContactSection />
-      <TeamSection />
+      {/* <TeamSection /> */}
     </main>
     <FooterSection />
     <FloatingQuoteButton />
