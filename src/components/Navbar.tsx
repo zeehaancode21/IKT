@@ -24,14 +24,14 @@ const Navbar = () => {
   // Universal scroll handler – works for all anchor links
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
-  
+
     // Always scroll to absolute top for "home"
     if (sectionId === "home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       setMobileOpen(false);
       return;
     }
-  
+
     const section = document.getElementById(sectionId);
     if (section) {
       const navbarHeight = 80;
@@ -46,9 +46,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-nav shadow-lg py-3" : "bg-transparent py-5"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-nav shadow-lg py-3" : "bg-transparent py-5"
+        }`}
     >
       <div className="section-container flex items-center justify-between">
         {/* Logo area – also scrolls to home */}
@@ -58,24 +57,30 @@ const Navbar = () => {
           className="flex flex-col items-start gap-0 cursor-pointer"
         >
           <div className="flex items-center gap-2">
-            {/* ── PNG logo replaces the old text badge ── */}
+            {/* ── PNG logo replaces the old text badge
             <img
-              src="/IKT.png"
+              src="/logo5.png"
               alt="IKT Logo"
               className="w-8 h-8 object-contain rounded-sm"
             />
+             ── */}
+            <div className="w-8 h-8 bg-white rounded-sm flex items-center justify-center">
+              <img
+                src="/logo5.png"
+                alt="IKT Logo"
+                className="w-full h-full object-contain rounded-sm"
+              />
+            </div>
             <span
-              className={`font-display font-bold text-lg ${
-                scrolled ? "text-primary" : "text-primary-foreground"
-              }`}
+              className={`font-display font-bold text-lg ${scrolled ? "text-primary" : "text-primary-foreground"
+                }`}
             >
               I K Tangience
             </span>
           </div>
           <span
-            className={`font-mono text-[10px] tracking-[2px] uppercase mt-0.5 ${
-              scrolled ? "text-orange-600" : "text-orange-300"
-            }`}
+            className={`font-mono text-[10px] tracking-[2px] uppercase mt-0.5 ${scrolled ? "text-orange-600" : "text-orange-300"
+              }`}
           >
             WE SPEAK FLUENT STEEL
           </span>
@@ -88,9 +93,8 @@ const Navbar = () => {
               key={l.href}
               href={l.href}
               onClick={(e) => scrollToSection(e, l.href.substring(1))}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                scrolled ? "text-foreground" : "text-primary-foreground/80"
-              }`}
+              className={`text-sm font-medium transition-colors hover:text-accent ${scrolled ? "text-foreground" : "text-primary-foreground/80"
+                }`}
             >
               {l.label}
             </a>
