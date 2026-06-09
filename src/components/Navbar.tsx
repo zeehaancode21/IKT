@@ -58,9 +58,12 @@ const Navbar = () => {
           className="flex flex-col items-start gap-0 cursor-pointer"
         >
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-accent rounded-sm flex items-center justify-center">
-              <span className="font-display font-black text-accent-foreground text-sm">IKT</span>
-            </div>
+            {/* ── PNG logo replaces the old text badge ── */}
+            <img
+              src="/IKT.png"
+              alt="IKT Logo"
+              className="w-8 h-8 object-contain rounded-sm"
+            />
             <span
               className={`font-display font-bold text-lg ${
                 scrolled ? "text-primary" : "text-primary-foreground"
