@@ -79,6 +79,7 @@ const ServicesSection = () => (
               <img
                 src={s.image}
                 alt={s.title}
+                loading="lazy" 
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
