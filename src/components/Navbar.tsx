@@ -66,10 +66,10 @@ const Navbar = () => {
              ── */}
             <div className="w-8 h-8 bg-white rounded-sm flex items-center justify-center">
               <img
-                src="/logo5.png"
-                alt="IKT Logo"
-                className="w-full h-full object-contain rounded-sm"
-              />
+  src="/logo5.png"
+  alt="IKT Logo"
+  className="w-full h-full object-contain"
+/>
             </div>
             <span
               className={`font-display font-bold text-lg ${scrolled ? "text-primary" : "text-primary-foreground"
