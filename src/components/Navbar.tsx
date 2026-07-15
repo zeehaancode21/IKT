@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 
-// Nav links – includes "Home" but you can remove it if only logo should go home
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -21,11 +20,9 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Universal scroll handler – works for all anchor links
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
 
-    // Always scroll to absolute top for "home"
     if (sectionId === "home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       setMobileOpen(false);
@@ -50,26 +47,23 @@ const Navbar = () => {
         }`}
     >
       <div className="section-container flex items-center justify-between">
-        {/* Logo area – also scrolls to home */}
         <a
           href="#home"
           onClick={(e) => scrollToSection(e, "home")}
           className="flex flex-col items-start gap-0 cursor-pointer"
         >
           <div className="flex items-center gap-2">
-            {/* ── PNG logo replaces the old text badge
-            <img
-              src="/logo5.png"
-              alt="IKT Logo"
-              className="w-8 h-8 object-contain rounded-sm"
-            />
-             ── */}
-            <div className="w-8 h-8 bg-white rounded-sm flex items-center justify-center">
+
+            <div className="w-8 h-8 flex items-center justify-center">
               <img
-  src="/logo5.png"
-  alt="IKT Logo"
-  className="w-full h-full object-contain"
-/>
+                src="/logo.png"
+                alt="IKT Logo"
+                className="w-8 h-8 object-contain rounded-sm"
+                style={{
+                  mixBlendMode: 'multiply',
+                }}
+              />
+
             </div>
             <span
               className={`font-display font-bold text-lg ${scrolled ? "text-primary" : "text-primary-foreground"

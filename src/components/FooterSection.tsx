@@ -7,7 +7,11 @@ const FooterSection = () => (
         <div>
           <div className="flex items-center gap-2 mb-4">
             <div className="w-8 h-8 bg-accent rounded-sm flex items-center justify-center">
-              <span className="font-display font-black text-accent-foreground text-sm">IKT</span>
+              <img
+  src="/logo-white-black.png"
+  alt="IKT Logo"
+  className="w-full h-full object-contain"
+/>
             </div>
             <span className="font-display font-bold text-primary-foreground text-lg">IK Tangience LLP</span>
           </div>
