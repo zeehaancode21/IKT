@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Star, ChevronLeft, ChevronRight, Quote, Users, Building2, MapPin } from "lucide-react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Star, ChevronLeft, ChevronRight, Quote, Building2, MapPin } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const testimonials = [
@@ -68,21 +68,69 @@ const testimonials = [
   }
 ];
 
+const AUTOPLAY_MS = 4000;
+
 const TestimonialsSection = () => {
   const [idx, setIdx] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const prev = () => {
+  // Timer bookkeeping so the progress bar and the actual auto-advance
+  // stay perfectly in sync, including pause/resume from hover.
+  const timeoutRef = useRef(null);
+  const remainingRef = useRef(AUTOPLAY_MS);
+  const startedAtRef = useRef(null);
+
+  const handlePrev = () => {
     if (isAnimating) return;
     setIsAnimating(true);
     setIdx((i) => (i === 0 ? testimonials.length - 1 : i - 1));
     setTimeout(() => setIsAnimating(false), 500);
   };
 
-  const next = () => {
-    if (isAnimating) return;
+  const handleNext = useCallback(() => {
     setIsAnimating(true);
     setIdx((i) => (i === testimonials.length - 1 ? 0 : i + 1));
+    setTimeout(() => setIsAnimating(false), 500);
+  }, []);
+
+  // Whenever the slide changes, reset the countdown to a full interval.
+  useEffect(() => {
+    remainingRef.current = AUTOPLAY_MS;
+  }, [idx]);
+
+  // Core autoplay engine: starts/pauses/resumes based on isPaused,
+  // and restarts fresh whenever the slide changes.
+  useEffect(() => {
+    if (isPaused) {
+      clearTimeout(timeoutRef.current);
+      return;
+    }
+
+    startedAtRef.current = Date.now();
+    timeoutRef.current = setTimeout(() => {
+      handleNext();
+    }, remainingRef.current);
+
+    return () => clearTimeout(timeoutRef.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [idx, isPaused]);
+
+  const handleMouseEnter = () => {
+    // freeze remaining time at the point of hover
+    const elapsed = Date.now() - (startedAtRef.current || Date.now());
+    remainingRef.current = Math.max(remainingRef.current - elapsed, 0);
+    setIsPaused(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false);
+  };
+
+  const handleDotClick = (i) => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setIdx(i);
     setTimeout(() => setIsAnimating(false), 500);
   };
 
@@ -102,7 +150,7 @@ const TestimonialsSection = () => {
 
       {/* Background pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23f97316' fill-opacity='0.03' d='M100 0L200 200H0L100 0z'/%3E%3C/svg%3E')] bg-repeat opacity-30 pointer-events-none" />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <p className="font-mono text-orange-600 dark:text-orange-400 text-sm tracking-widest uppercase mb-3 font-semibold animate-pulse">
@@ -118,10 +166,14 @@ const TestimonialsSection = () => {
         <AnimatedSection>
           <div className="max-w-4xl mx-auto">
             {/* Card with glassmorphism effect and animated border */}
-            <div className="relative group">
+            <div
+              className="relative group"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
               {/* Rotating border */}
               <div className="absolute -inset-1 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <div className="w-full h-full rounded-3xl" style={{ 
+                <div className="w-full h-full rounded-3xl" style={{
                   background: 'conic-gradient(from var(--angle, 0deg), transparent, rgba(251, 146, 60, 0.3), transparent 60%)',
                   animation: 'spin 4s linear infinite'
                 }} />
@@ -129,10 +181,10 @@ const TestimonialsSection = () => {
 
               {/* Main card */}
               <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 p-8 md:p-12 transition-all duration-500 hover:shadow-orange-500/20 hover:scale-[1.01]">
-                
+
                 {/* Animated gradient overlay */}
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-600/0 group-hover:from-orange-500/5 group-hover:via-orange-500/5 group-hover:to-orange-600/5 transition-all duration-700 pointer-events-none" />
-                
+
                 {/* Card shine effect */}
                 <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
@@ -147,7 +199,7 @@ const TestimonialsSection = () => {
                 <div className="absolute top-6 right-6 bg-orange-100 dark:bg-orange-900/40 text-orange-600 dark:text-orange-400 text-xs font-bold px-3 py-1 rounded-full border border-orange-200 dark:border-orange-700">
                   {idx + 1} / {testimonials.length}
                 </div>
-                
+
                 <div className="relative z-10">
                   {/* Stars with animation */}
                   <div className="flex justify-center gap-1.5 mb-6">
@@ -190,27 +242,39 @@ const TestimonialsSection = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* Autoplay loading bar - fills up over the interval, pauses on hover */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-100 dark:bg-gray-700/50 rounded-b-3xl overflow-hidden">
+                  <div
+                    key={idx}
+                    className="h-full bg-gradient-to-r from-orange-400 to-orange-600"
+                    style={{
+                      animation: `loadProgress ${AUTOPLAY_MS}ms linear forwards`,
+                      animationPlayState: isPaused ? 'paused' : 'running'
+                    }}
+                  />
+                </div>
               </div>
             </div>
 
             {/* Navigation buttons with enhanced animations */}
             <div className="flex justify-center gap-4 mt-10">
               <button
-                onClick={prev}
+                onClick={handlePrev}
                 disabled={isAnimating}
                 className="group w-12 h-12 rounded-full bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 flex items-center justify-center shadow-sm hover:shadow-lg hover:border-orange-500 dark:hover:border-orange-500 transition-all duration-300 hover:scale-110 hover:rotate-[-5deg] disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors" />
               </button>
-              
+
               {/* Center indicator with progress */}
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono text-gray-400 dark:text-gray-500">
                   {String(idx + 1).padStart(2, '0')}
                 </span>
                 <div className="w-20 h-0.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                  <div 
+                  <div
                     className="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full transition-all duration-500"
                     style={{ width: `${((idx + 1) / testimonials.length) * 100}%` }}
                   />
@@ -221,7 +285,7 @@ const TestimonialsSection = () => {
               </div>
 
               <button
-                onClick={next}
+                onClick={handleNext}
                 disabled={isAnimating}
                 className="group w-12 h-12 rounded-full bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 flex items-center justify-center shadow-sm hover:shadow-lg hover:border-orange-500 dark:hover:border-orange-500 transition-all duration-300 hover:scale-110 hover:rotate-[5deg] disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Next testimonial"
@@ -235,12 +299,7 @@ const TestimonialsSection = () => {
               {testimonials.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => {
-                    if (isAnimating) return;
-                    setIsAnimating(true);
-                    setIdx(i);
-                    setTimeout(() => setIsAnimating(false), 500);
-                  }}
+                  onClick={() => handleDotClick(i)}
                   className={`transition-all duration-500 rounded-full ${
                     i === idx
                       ? "w-10 h-2.5 bg-gradient-to-r from-orange-400 to-orange-600 shadow-lg shadow-orange-500/30"
@@ -263,6 +322,10 @@ const TestimonialsSection = () => {
           0% { transform: scale(0); opacity: 0; }
           50% { transform: scale(1.3); }
           100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes loadProgress {
+          from { width: 0%; }
+          to { width: 100%; }
         }
         @property --angle {
           syntax: '<angle>';
