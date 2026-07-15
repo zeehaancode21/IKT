@@ -22,11 +22,11 @@ const FooterSection = () => {
     if (!showChat) return;
 
     const interval = setInterval(() => {
-      setExpertsOnline(Math.floor(Math.random() * 6) + 2); // new number 2–7
-    }, 8000); // change every 8 seconds — adjust as you like
+      setExpertsOnline(Math.floor(Math.random() * 6) + 2);
+    }, 8000);
 
     return () => clearInterval(interval);
- }, [showChat]);
+  }, [showChat]);
 
   // Close chat when clicking outside
   useEffect(() => {
@@ -83,7 +83,7 @@ const FooterSection = () => {
       style: {
         background: "#1e293b",
         color: "#fff",
-        border: "1px solid rgba(251, 146, 60, 0.3)",
+        border: "1px solid rgba(59, 130, 246, 0.3)",
         borderRadius: "12px",
         boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
       },
@@ -104,7 +104,7 @@ const FooterSection = () => {
       </div>
 
       {/* Background pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23f97316' fill-opacity='0.02' d='M100 0L200 200H0L100 0z'/%3E%3C/svg%3E')] bg-repeat opacity-20 pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%233b82f6' fill-opacity='0.02' d='M100 0L200 200H0L100 0z'/%3E%3C/svg%3E')] bg-repeat opacity-20 pointer-events-none" />
       
       {/* Gradient line at top */}
       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-orange-500/50 to-transparent animate-pulse" />
@@ -115,7 +115,7 @@ const FooterSection = () => {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 flex items-center justify-center">
-                 <img
+                <img
                   src="/logo-footer.png"
                   alt="IKT Logo"
                   className="w-12 h-12 object-contain"
@@ -125,7 +125,7 @@ const FooterSection = () => {
                 />
               </div>
               <span className="font-display font-bold text-white text-xl tracking-tight">
-                IK Tangience <span className="text-orange-500">LLP</span>
+                IK Tangience <span className="text-white-500">LLP</span>
               </span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
@@ -398,12 +398,12 @@ const FooterSection = () => {
             <div className="flex items-center justify-center gap-2 pt-2">
               <div className="flex -space-x-1">
                 <div className="w-6 h-6 rounded-full bg-orange-500/20 border-2 border-slate-800 flex items-center justify-center text-[10px]">👨‍💼</div>
-                <div className="w-6 h-6 rounded-full bg-blue-500/20 border-2 border-slate-800 flex items-center justify-center text-[10px]">👩‍💻</div>
+                <div className="w-6 h-6 rounded-full bg-cyan-500/20 border-2 border-slate-800 flex items-center justify-center text-[10px]">👩‍💻</div>
                 <div className="w-6 h-6 rounded-full bg-green-500/20 border-2 border-slate-800 flex items-center justify-center text-[10px]">🧑‍🏭</div>
               </div>
               <p className="text-gray-500 text-xs">
                 <span className="text-green-400">●</span> {expertsOnline} expert{expertsOnline !== 1 ? 's' : ''} online
-               </p>
+              </p>
             </div>
           </div>
         </div>
@@ -411,7 +411,7 @@ const FooterSection = () => {
         {/* Chat Button - Professional Design */}
         <button
           ref={buttonRef}
-         onClick={() => setShowChat(!showChat)}
+          onClick={() => setShowChat(!showChat)}
           className="relative group w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-2xl shadow-orange-500/40 transition-all duration-300 hover:scale-110 hover:shadow-orange-500/60 flex items-center justify-center"
         >
           {/* Pulsing rings */}
@@ -445,7 +445,6 @@ const FooterSection = () => {
         </button>
       </div>
 
-      {/* Custom styles */}
       <style>{`
         @keyframes spin {
           to { --angle: 360deg; }
