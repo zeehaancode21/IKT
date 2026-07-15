@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Send, MapPin, Phone, Mail } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
@@ -11,13 +10,14 @@ const ContactSection = () => {
     e.preventDefault();
     setSubmitting(true);
 
-   const form = e.currentTarget;
-const formData = new FormData(form);
-const htmlMessage = `...your template...`;
-formData.append("html", htmlMessage);
-formData.append("_subject", "🚀 New Project Inquiry");
-formData.append("_replyto", formData.get("email") as string);
-    formData.set("message", htmlMessage)
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const htmlMessage = `...your template...`;
+    formData.append("html", htmlMessage);
+    formData.append("_subject", "🚀 New Project Inquiry");
+    formData.append("_replyto", formData.get("email") as string);
+    formData.set("message", htmlMessage);
+    
     try {
       const response = await fetch("https://formspree.io/f/mgvyjbgd", {
         method: "POST",
@@ -48,7 +48,7 @@ formData.append("_replyto", formData.get("email") as string);
     <section id="contact" className="section-padding bg-background">
       <div className="section-container">
 
-        {/* HEADER */}
+        {/* HEADER with Animation */}
         <AnimatedSection className="max-w-3xl mb-16">
           <p className="font-mono text-accent text-sm tracking-widest uppercase mb-3">
             Contact Us

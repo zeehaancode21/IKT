@@ -10,7 +10,7 @@ import WorkflowSection from "@/components/WorkflowSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
-import FloatingQuoteButton from "@/components/FloatingQuoteButton";
+// import FloatingQuoteButton from "@/components/FloatingQuoteButton";
 // import TeamSection from "@/components/TeamSection";
 
 const Index = () => (
@@ -30,7 +30,7 @@ const Index = () => (
       {/* <TeamSection /> */}
     </main>
     <FooterSection />
-    <FloatingQuoteButton />
+    {/* <FloatingQuoteButton /> */}
   </>
 );
 
