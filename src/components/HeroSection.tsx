@@ -7,9 +7,20 @@ interface UnsplashPhoto {
   urls: {
     regular: string;
   };
+  alt_description?: string;
+  description?: string;
 }
 
-const UNSPLASH_ACCESS_KEY = "y-0NjtyOH2xNuezIuX_KsS0l3MjHUnEWwgsulS2wk7Q";
+const UNSPLASH_ACCESS_KEY = "beUQwqByJ8Q0W1geBx-UbB12yF49uXrQND0FYYlspQM";
+
+/* FALLBACK IMAGES — curated, verified free-to-use Unsplash photos */
+const FALLBACK_IMAGES = [
+  "https://images.unsplash.com/photo-1609627016501-b862497c7294?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1557143930-d4e7a86a194f?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1444847840129-0ac27946a0a7?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1584099667019-c7fbb1f55664?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?auto=format&fit=crop&w=1920&q=80",
+];
 
 /* DYNAMIC TEXT CONTENT */
 const heroContent = [
@@ -23,13 +34,13 @@ const heroContent = [
     title: "Connection Detailing That Actually Connects",
     highlight: "Connection Design",
     subtitle:
-      "Every bolt, weld, and plate clearly detailed so fabricators don’t need detective skills or spiritual guidance to interpret your drawings.",
+      "Every bolt, weld, and plate clearly detailed so fabricators don't need detective skills or spiritual guidance to interpret your drawings.",
   },
   {
     title: "Precision Steel Detailing",
     highlight: "Steel Detailing",
     subtitle:
-      "Because ‘close enough’ is an excellent philosophy for street food, not structural steel. We create fabrication-ready drawings that fit together without inspiring emergency site meetings.",
+      "Because 'close enough' is an excellent philosophy for street food, not structural steel. We create fabrication-ready drawings that fit together without inspiring emergency site meetings.",
   },
   {
     title: "Tekla Modeling Specialists",
@@ -59,7 +70,7 @@ const heroContent = [
     title: "Engineering With Accountability",
     highlight: "Trusted Accuracy",
     subtitle:
-      "Deliverables precise enough that contractors can stop saying, ‘we’ll adjust it somehow on site,’ like that’s a real engineering strategy.",
+      "Deliverables precise enough that contractors can stop saying, 'we'll adjust it somehow on site,' like that's a real engineering strategy.",
   },
   {
     title: "Steel Detailing Without Drama",
@@ -77,7 +88,7 @@ const heroContent = [
     title: "Detailing That Saves Time",
     highlight: "Efficient Execution",
     subtitle:
-      "Reducing revisions, delays, and site fixes because rebuilding structural steel is generally considered a poor use of everyone’s budget.",
+      "Reducing revisions, delays, and site fixes because rebuilding structural steel is generally considered a poor use of everyone's budget.",
   },
   {
     title: "Modern Engineering Workflows",
@@ -95,7 +106,7 @@ const heroContent = [
     title: "Drawings That Make Sense",
     highlight: "Clear Documentation",
     subtitle:
-      "Readable, logical, and properly organized drawings that don’t require five phone calls and a crisis meeting to understand.",
+      "Readable, logical, and properly organized drawings that don't require five phone calls and a crisis meeting to understand.",
   },
   {
     title: "Built for Real-World Construction",
@@ -113,7 +124,7 @@ const heroContent = [
     title: "Accurate Models. Fewer Problems.",
     highlight: "Precision Modeling",
     subtitle:
-      "Highly coordinated models that reduce fabrication issues, field conflicts, and those unforgettable sentences starting with ‘slight modification required on-site.’",
+      "Highly coordinated models that reduce fabrication issues, field conflicts, and those unforgettable sentences starting with 'slight modification required on-site.'",
   },
   {
     title: "Reliable From Start to Finish",
@@ -130,31 +141,35 @@ const heroContent = [
 ];
 
 const HeroSlider = () => {
-  const [photos, setPhotos] = useState<string[]>([]);
+  const [photos, setPhotos] = useState<string[]>(FALLBACK_IMAGES);
   const [currentImage, setCurrentImage] = useState(0);
   const [currentText, setCurrentText] = useState(0);
 
-  type UnsplashPhoto = {
-    urls: {
-      regular: string;
-    };
-    alt_description?: string;
-    description?: string;
-  };
   /* FETCH IMAGES */
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
+        // Fix: Use search endpoint with encoded query
+        const query = encodeURIComponent("structural steel frame construction");
         const response = await fetch(
-          `https://api.unsplash.com/photos/random?query=structural-steel-frame construction beams girders&count=12&client_id=${UNSPLASH_ACCESS_KEY}`
+          `https://api.unsplash.com/search/photos?query=${query}&per_page=12&client_id=${UNSPLASH_ACCESS_KEY}`
         );
 
-        const data: UnsplashPhoto[] = await response.json();
+        if (!response.ok) {
+          throw new Error(`Unsplash request failed: ${response.status}`);
+        }
 
-        const filteredPhotos = data.filter((photo) => {
-          const text = `${photo.alt_description || ""} ${photo.description || ""
-            }`.toLowerCase();
+        const data = await response.json();
+        const photos = data.results || [];
 
+        if (photos.length === 0) {
+          console.log("No photos found, using fallback set");
+          return;
+        }
+
+        // Filter out rebar/bar images
+        const filteredPhotos = photos.filter((photo: UnsplashPhoto) => {
+          const text = `${photo.alt_description || ""} ${photo.description || ""}`.toLowerCase();
           return !(
             text.includes("bar") ||
             text.includes("reinforcement") ||
@@ -165,16 +180,20 @@ const HeroSlider = () => {
           );
         });
 
-        const imageUrls = filteredPhotos
+        const imageUrls = (filteredPhotos.length ? filteredPhotos : photos)
           .slice(0, 8)
           .map(
-            (photo) =>
+            (photo: UnsplashPhoto) =>
               `${photo.urls.regular}&auto=format&fit=crop&w=1920&q=80`
           );
 
-        setPhotos(imageUrls);
+        if (imageUrls.length) {
+          setPhotos(imageUrls);
+          console.log("Successfully loaded images from Unsplash");
+        }
       } catch (error) {
-        console.error("Failed to fetch images:", error);
+        // API failed — FALLBACK_IMAGES stays in place
+        console.error("Failed to fetch images, using fallback set:", error);
       }
     };
 
@@ -218,7 +237,7 @@ const HeroSlider = () => {
       {/* BACKGROUND IMAGES */}
       {photos.map((photo, index) => (
         <img
-          key={index}
+          key={photo}
           src={photo}
           alt={`Steel construction ${index}`}
           className={`absolute inset-0 h-full w-full object-cover 
