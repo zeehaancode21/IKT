@@ -218,8 +218,9 @@ const FooterSection = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, "#contact")}
+                  href="https://www.google.com/maps/search/?api=1&query=Mysuru,+Karnataka+570001"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-start gap-3 text-gray-400 text-sm hover:text-orange-400 transition-all duration-300 group cursor-pointer"
                 >
                   <MapPin className="w-4 h-4 text-orange-500 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
@@ -228,8 +229,7 @@ const FooterSection = () => {
               </li>
               <li>
                 <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, "#contact")}
+                  href="tel:+919964182464"
                   className="flex items-center gap-3 text-gray-400 text-sm hover:text-orange-400 transition-all duration-300 group cursor-pointer"
                 >
                   <Phone className="w-4 h-4 text-orange-500 group-hover:scale-110 transition-transform duration-300" />
@@ -238,8 +238,7 @@ const FooterSection = () => {
               </li>
               <li>
                 <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, "#contact")}
+                  href="mailto:info@iktangience.com"
                   className="flex items-center gap-3 text-gray-400 text-sm hover:text-orange-400 transition-all duration-300 group cursor-pointer"
                 >
                   <Mail className="w-4 h-4 text-orange-500 group-hover:scale-110 transition-transform duration-300" />

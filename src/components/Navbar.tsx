@@ -76,21 +76,21 @@ const Navbar = () => {
         <a
           href="#home"
           onClick={(e) => scrollToSection(e, "home")}
-          className="group flex flex-col items-start gap-0 cursor-pointer"
+          className="group flex items-center gap-3 cursor-pointer"
         >
-          <div className="flex items-center gap-2.5">
-            <div className="relative w-9 h-9 flex items-center justify-center">
-              {/* Animated ring behind logo */}
-              <div className={`absolute inset-0 rounded-full border-2 border-orange-500/20 animate-pulse-slow ${scrolled ? 'opacity-50' : 'opacity-30'}`} />
-              <img
-                src="/logo.svg"
-                alt="IKT Logo"
-                className="w-8 h-8 object-contain rounded-sm relative z-10 transition-transform duration-300 group-hover:scale-110"
-                style={{
-                  mixBlendMode: 'multiply',
-                }}
-              />
-            </div>
+          <div className="relative w-14 h-14 flex items-center justify-center shrink-0">
+            {/* Animated ring behind logo */}
+            <div className={`absolute inset-0 rounded-full border-2 border-orange-500/20 animate-pulse-slow ${scrolled ? 'opacity-50' : 'opacity-30'}`} />
+            <img
+              src="/logo.svg"
+              alt="IKT Logo"
+              className="w-12 h-12 object-contain rounded-sm relative z-10 transition-transform duration-300 group-hover:scale-110"
+              style={{
+                mixBlendMode: 'multiply',
+              }}
+            />
+          </div>
+          <div className="flex flex-col items-start gap-0">
             <span
               className={`font-display font-bold text-lg tracking-tight transition-all duration-300 ${
                 scrolled ? "text-gray-900" : "text-white"
@@ -98,14 +98,14 @@ const Navbar = () => {
             >
               I K Tangience
             </span>
+            <span
+              className={`font-mono text-[10px] tracking-[3px] uppercase mt-0.5 transition-all duration-300 ${
+                scrolled ? "text-orange-600" : "text-orange-300"
+              } group-hover:text-orange-400`}
+            >
+              WE SPEAK FLUENT STEEL
+            </span>
           </div>
-          <span
-            className={`font-mono text-[10px] tracking-[3px] uppercase mt-0.5 transition-all duration-300 ${
-              scrolled ? "text-orange-600" : "text-orange-300"
-            } group-hover:text-orange-400`}
-          >
-            WE SPEAK FLUENT STEEL
-          </span>
         </a>
 
         {/* Desktop Nav Links */}

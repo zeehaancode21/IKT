@@ -168,9 +168,14 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-primary text-sm">Office</h4>
-                  <p className="text-secondary text-sm">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Mysuru,+Karnataka+570001"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-secondary text-sm hover:text-accent transition-colors"
+                  >
                     Mysuru, Karnataka 570001
-                  </p>
+                  </a>
                 </div>
               </div>
 
@@ -180,9 +185,12 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-primary text-sm">Phone</h4>
-                  <p className="text-secondary text-sm">
+                  <a
+                    href="tel:+919964182464"
+                    className="text-secondary text-sm hover:text-accent transition-colors"
+                  >
                     +91 996 418 2464
-                  </p>
+                  </a>
                 </div>
               </div>
 
@@ -192,9 +200,12 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-primary text-sm">Email</h4>
-                  <p className="text-secondary text-sm">
+                  <a
+                    href="mailto:info@iktangience.com"
+                    className="text-secondary text-sm hover:text-accent transition-colors"
+                  >
                     info@iktangience.com
-                  </p>
+                  </a>
                 </div>
               </div>
 
