@@ -81,7 +81,7 @@ const SoftwareSection = () => {
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight animate-fade-in-up">
             Industry-Leading
-            <span className="block mt-2 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
+            <span className="block mt-2 pb-1 leading-[1.2] bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
               Engineering Software
             </span>
           </h2>

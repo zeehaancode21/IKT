@@ -29,7 +29,7 @@ const WorkflowSection = () => (
         <p className="font-mono text-orange-600 dark:text-orange-400 text-sm tracking-widest uppercase mb-3 font-semibold animate-pulse">
           Our Process
         </p>
-        <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-slate-800 to-slate-900 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6 relative inline-block group">
+        <h2 className="text-4xl md:text-5xl font-extrabold leading-[1.2] pb-1 bg-gradient-to-r from-slate-800 to-slate-900 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6 relative inline-block group">
           Engineering Workflow
           {/* Animated underline */}
           <span className="absolute -bottom-3 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out" />
