@@ -173,7 +173,7 @@ const FooterSection = () => {
               Quick Links
             </h4>
             <ul className="space-y-2.5">
-              {["Home", "About", "Services", "Projects", "Contact"].map((l) => (
+              {["Home", "About", "Services", "Technology", "Projects", "Contact"].map((l) => (
                 <li key={l}>
                   <a
                     href={l === "Home" ? "#home" : `#${l.toLowerCase()}`}
