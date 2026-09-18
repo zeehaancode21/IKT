@@ -21,15 +21,14 @@ const Index = () => (
     <Navbar />
     <main>
       <HeroSection />
-      <DrawingAutomationSection />
-      
       <AboutSection />
+      <DrawingAutomationSection />
+      <WorkflowSection />
+      <IKTSection />
       <ServicesSection />
       <SoftwareSection />
       <ProjectsSection />
       <WhyChooseUsSection />
-      <WorkflowSection />
-      <IKTSection />
       <TestimonialsSection />
       <ContactSection />
       {/* <TeamSection /> */}
